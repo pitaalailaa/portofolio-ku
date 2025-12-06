@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>portofolio-pita</title>
+</head>
+
+ <!-- NAVBAR -->
+    <div class="max-w-6xl mx-auto px-28 py-10 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-pink-600">Portofolio</h1>
+      <div class="space-x-6 font-medium">
+        <a href="#home" class="text-gray-700 hover:text-pink-500">Home</a>
+        <a href="#about" class="text-gray-700 hover:text-pink-500">Tentang</a>
+        <a href="#projects" class="text-gray-700 hover:text-pink-500">Project</a>
+        <a href="#contact" class="text-gray-700 hover:text-pink-500">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION MIRIP FOTO -->
+<section id="home" class="min-h-screen flex items-center px-20 pt-30">
+  <div class="max-w-3x3 mx-auto grid grid-cols-3 md:grid-cols-2 gap-8 items-center">
+
+    <!-- TEXT KIRI -->
+    <div>
+      <div class="bg-pink-100 text-pink-700 px-2 py-2 rounded-xl inline-flex items-center gap-2 mb-2 shadow-sm">
+        <span class="text-sm">“Kode yang indah lahir dari ketekunan. ✨”</span>
+      </div>
+
+      <h1 class="text-4x3 md:text-5x1 font-bold text-gray-900 leading-tight">
+        Hi, Saya <span class="text-pink-600">Fitha Lailatul Ngarifah!</span> 🎀
+      </h1>
+
+      <p class="text-gray-600 mt-4 leading-relaxed max-w-md">
+        Saya memiliki ketertarikan dalam bidang programming terutama pembuatan website.
+        Ini adalah portofolio aesthetic saya yang berisi project, skill, dan informasi lainnya.
+      </p>
+
+      <!-- BUTTONS -->
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="#" class="bg-pink-500 text-white px-6 py-3 rounded-lg shadow hover:bg-pink-600 transition">
+          Download CV ⬇
+        </a>
+
+        <a href="#projects" class="bg-white border border-pink-300 text-pink-600 px-6 py-3 rounded-lg shadow hover:bg-pink-50 transition">
+          Lihat Project ⭐
+        </a>
+      </div>
+    </div>
+
+    <!-- FOTO KANAN -->
+    <div class="flex justify-center md:justify-end">
+      <div class="relative">
+
+        <!-- Background Pink + Icon Pita -->
+        <div class="w-72 h-72 md:w-80 md:h-80 bg-pink-100 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden relative">
+          <!-- SVG Pita Lucu -->
+          <img src="https://i.imgur.com/XYmQdp7.png" class="absolute w-full h-full opacity-30 object-cover" alt="">
+          
+          <!-- FOTO PROFIL -->
+          <img 
+            src="https://i.pinimg.com/736x/35/54/6a/35546a7357cf7dc4e98f57086c463c36.jpg"
+            alt="Foto"
+            class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover shadow-xl relative z-10"
+          >
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- TENTANG SAYA -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-pink-600 text-center mb-6">Tentang Saya</h2>
+      <p class="text-gray-700 text-center leading-relaxed">
+        Aku suka desain yang aesthetic, cute, dan soft.
+        Sekarang fokus belajar membuat website dengan HTML, CSS, Tailwind, dan JavaScript.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20 bg-pink-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-pink-600 mb-10">Project</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <!-- CARD 1 -->
+        <div class="bg-white rounded-xl shadow-md p-6 border border-pink-200 hover:shadow-xl transition">
+          <h3 class="font-bold text-xl text-pink-600 mb-2">Project 1</h3>
+          <p class="text-gray-700">Website landing page simple dengan tema soft pastel.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="bg-white rounded-xl shadow-md p-6 border border-pink-200 hover:shadow-xl transition">
+          <h3 class="font-bold text-xl text-pink-600 mb-2">Project 2</h3>
+          <p class="text-gray-700">Desain UI mobile dengan tema pink aesthetic.</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="bg-white rounded-xl shadow-md p-6 border border-pink-200 hover:shadow-xl transition">
+          <h3 class="font-bold text-xl text-pink-600 mb-2">Project 3</h3>
+          <p class="text-gray-700">Mini portfolio website untuk tugas akhir.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-pink-600 mb-6">Kontak</h2>
+      <p class="text-gray-700">Email: <span class="font-semibold">pita@example.com</span></p>
+    </div>
+  </section>
