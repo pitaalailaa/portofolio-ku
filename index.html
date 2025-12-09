@@ -1,123 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
-  <script src="https://cdn.tailwindcss.com"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>portofolio-pita</title>
+  <title>Portofolio Pita</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Animation -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          keyframes: {
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            }
+          },
+          animation: {
+            slideUp: 'slideUp 0.8s ease-out forwards'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Smooth Scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
 </head>
 
- <!-- NAVBAR -->
-    <div class="max-w-6xl mx-auto px-28 py-10 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-pink-600">Portofolio</h1>
-      <div class="space-x-6 font-medium">
-        <a href="#home" class="text-gray-700 hover:text-pink-500">Home</a>
-        <a href="#about" class="text-gray-700 hover:text-pink-500">Tentang</a>
-        <a href="#projects" class="text-gray-700 hover:text-pink-500">Project</a>
-        <a href="#contact" class="text-gray-700 hover:text-pink-500">Kontak</a>
-      </div>
-    </div>
-  </nav>
+<body class="bg-white">
 
-  <!-- HERO SECTION MIRIP FOTO -->
-<section id="home" class="min-h-screen flex items-center px-20 pt-30">
-  <div class="max-w-3x3 mx-auto grid grid-cols-3 md:grid-cols-2 gap-8 items-center">
+  <!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <!-- TEXT KIRI -->
-    <div>
-      <div class="bg-pink-100 text-pink-700 px-2 py-2 rounded-xl inline-flex items-center gap-2 mb-2 shadow-sm">
-        <span class="text-sm">“Kode yang indah lahir dari ketekunan. ✨”</span>
-      </div>
+    <!-- Logo -->
+    <a href="#" class="text-xl font-bold text-pink-600">
+      MyPortfolio
+    </a>
 
-      <h1 class="text-4x3 md:text-5x1 font-bold text-gray-900 leading-tight">
-        Hi, Saya <span class="text-pink-600">Fitha Lailatul Ngarifah!</span> 🎀
-      </h1>
+    <!-- Menu (Desktop) -->
+    <ul class="hidden md:flex items-center gap-8 text-gray-700 font-medium">
+      <li><a href="#home" class="hover:text-pink-600 transition">Home</a></li>
+      <li><a href="#about" class="hover:text-pink-600 transition">About</a></li>
+      <li><a href="#projects" class="hover:text-pink-600 transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-pink-600 transition">Contact</a></li>
+    </ul>
 
-      <p class="text-gray-600 mt-4 leading-relaxed max-w-md">
-        Saya memiliki ketertarikan dalam bidang programming terutama pembuatan website.
-        Ini adalah portofolio aesthetic saya yang berisi project, skill, dan informasi lainnya.
-      </p>
+    <!-- Mobile Button -->
+    <button class="md:hidden text-pink-600 text-3xl" id="menu-btn">
+      ☰
+    </button>
+  </div>
 
-      <!-- BUTTONS -->
-      <div class="mt-6 flex flex-wrap gap-4">
-        <a href="#" class="bg-pink-500 text-white px-6 py-3 rounded-lg shadow hover:bg-pink-600 transition">
-          Download CV ⬇
-        </a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-inner">
+    <ul class="flex flex-col gap-4 p-5 text-gray-700 font-medium">
+      <li><a href="#home" class="hover:text-pink-600 transition">Home</a></li>
+      <li><a href="#about" class="hover:text-pink-600 transition">About</a></li>
+      <li><a href="#projects" class="hover:text-pink-600 transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-pink-600 transition">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <a href="#projects" class="bg-white border border-pink-300 text-pink-600 px-6 py-3 rounded-lg shadow hover:bg-pink-50 transition">
-          Lihat Project ⭐
-        </a>
-      </div>
-    </div>
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
 
-    <!-- FOTO KANAN -->
-    <div class="flex justify-center md:justify-end">
-      <div class="relative">
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
 
-        <!-- Background Pink + Icon Pita -->
-        <div class="w-72 h-72 md:w-80 md:h-80 bg-pink-100 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden relative">
-          <!-- SVG Pita Lucu -->
-          <img src="https://i.imgur.com/XYmQdp7.png" class="absolute w-full h-full opacity-30 object-cover" alt="">
-          
-          <!-- FOTO PROFIL -->
-          <img 
-            src="https://i.pinimg.com/736x/35/54/6a/35546a7357cf7dc4e98f57086c463c36.jpg"
-            alt="Foto"
-            class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover shadow-xl relative z-10"
-          >
+
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen flex items-center px-6 md:px-20 pt-10 md:pt-28">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+      <!-- TEKS KIRI -->
+      <div class="space-y-2">
+
+        <div class="bg-pink-100 text-pink-700 px-3 py-2 rounded-xl inline-flex items-center gap-2 mb-4 shadow-sm animate-slideUp">
+          <span class="text-sm">“be happy, be healty, be confident, and be proud of yourself. 💗”</span>
         </div>
 
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight animate-slideUp">
+          Hi, Saya <span class="text-pink-600">Fitha Lailatul Ngarifah</span> 🎀
+        </h1>
+
+        <p class="text-gray-600 mt-4 leading-relaxed max-w-md animate-slideUp">
+           Portfolio ini saya buat untuk menyimpan hasil belajar, perkembangan,
+          dan pengalaman selama PKL.
+        </p>
+
+        <!-- BUTTON -->
+        <div class="mt-6 flex flex-wrap gap-4 animate-slideUp">
+          <a href="#" class="bg-pink-500 text-white px-6 py-3 rounded-lg shadow hover:bg-pink-600 transition">
+            Download CV ⬇
+          </a>
+
+          <a href="#projects" class="bg-white border border-pink-300 text-pink-600 px-6 py-3 rounded-lg shadow hover:bg-pink-50 transition">
+            View Project ⭐
+          </a>
+        </div>
       </div>
+
+      <!-- FOTO KANAN -->
+      <div class="flex justify-center md:justify-end animate-slideUp">
+        <div class="relative">
+          <div class="w-56 h-56 md:w-80 md:h-80 bg-pink-100 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden relative">
+
+            <div class="group w-56 h-56 md:w-80 md:h-80 rounded-3xl shadow-xl overflow-hidden relative border-4 border-pink-400 transition-all duration-300">
+
+              <!-- Glow -->
+              <div class="absolute inset-0 rounded-3xl blur-2xl bg-pink-400 opacity-40"></div>
+
+              <img src="image-portofolio/image-home.png" class="relative z-10 w-full h-full object-cover transition duration-300 group-hover:scale-105">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+
+  <!-- ABOUT -->
+<section id="about" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 bg-pink-100 border border-pink-200 rounded-3xl p-10 shadow-md">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+
+      <!-- FOTO -->
+      <div class="flex justify-start">
+        <div class="relative group">
+          <div class="absolute -inset-2 bg-pink-300 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition"></div>
+
+          <img src="image-portofolio/image-about.jpeg" 
+     class="relative w-80 h-80 object-cover rounded-3xl shadow-xl group-hover:scale-105 transition duration-300">
+        </div>
+      </div>
+
+      <!-- TEKS ABOUT ME -->
+      <div class="text-left col-span-1">
+        <h2 class="text-3xl font-bold text-pink-600 mb-6 flex items-center gap-2">
+          About Me <span>🌸</span>
+        </h2>
+
+        <p class="text-gray-700 leading-relaxed text-lg mb-4">
+          Hai! Saya Fitha, siswi dari SMKN 3 Banjar yang sedang melaksanakan PKL di Access Media.
+          Selama di sini, saya membantu pekerjaan seperti menginput data, membuat desain kecil,
+          serta membuat panduan aplikasi agar mudah dipahami.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed text-lg">
+        </p>
+      </div>
+
+      
+     <!-- RIWAYAT PENDIDIKAN -->
+<div class="text-left">
+  <h3 class="text-2xl font-bold text-pink-600 mb-4">Riwayat Pendidikan 🎓</h3>
+
+  <div class="space-y-4">
+
+    <!-- SD -->
+    <div class="flex items-center gap-4 bg-white border border-pink-200 shadow-sm p-3 rounded-xl">
+      <img src="image-portofolio/icon-sd.jpeg" class="w-12 h-12 object-contain" alt="Logo SD">
+      <p class="text-gray-700 text-lg">SD — (nama sekolah kamu)</p>
+    </div>
+
+    <!-- SMP -->
+    <div class="flex items-center gap-4 bg-white border border-pink-200 shadow-sm p-3 rounded-xl">
+      <img src="image-portofolio/icon-smp.jpeg" class="w-12 h-12 object-contain" alt="Logo SMP">
+      <p class="text-gray-700 text-lg">SMP — (nama sekolah kamu)</p>
+    </div>
+
+    <!-- SMK -->
+    <div class="flex items-center gap-4 bg-white border border-pink-200 shadow-sm p-3 rounded-xl">
+      <img src="image-portofolio/icon-smk.jpeg" class="w-12 h-12 object-contain" alt="Logo SMK">
+      <p class="text-gray-700 text-lg">SMKN 3 Banjar — RPL</p>
+    </div>
+
+  </div>
+</div>
+
 
   </div>
 </section>
 
 
-  <!-- TENTANG SAYA -->
-  <section id="about" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-pink-600 text-center mb-6">Tentang Saya</h2>
-      <p class="text-gray-700 text-center leading-relaxed">
-        Aku suka desain yang aesthetic, cute, dan soft.
-        Sekarang fokus belajar membuat website dengan HTML, CSS, Tailwind, dan JavaScript.
-      </p>
-    </div>
-  </section>
-
   <!-- PROJECTS -->
   <section id="projects" class="py-20 bg-pink-50">
     <div class="max-w-6xl mx-auto px-6">
+
       <h2 class="text-3xl font-bold text-center text-pink-600 mb-10">Project</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
         <!-- CARD 1 -->
-        <div class="bg-white rounded-xl shadow-md p-6 border border-pink-200 hover:shadow-xl transition">
-          <h3 class="font-bold text-xl text-pink-600 mb-2">Project 1</h3>
-          <p class="text-gray-700">Website landing page simple dengan tema soft pastel.</p>
-        </div>
+        <a href="https://docs.haadir.in/intro" class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+          <img src="image-portofolio/panduan-haadirin.png" class="w-full h-40 object-cover">
+          <h3 class="font-bold text-xl text-pink-600 my-3">Notiffin</h3>
+          <p class="text-gray-700 text-sm">Sistem notifikasi WhatsApp otomatis berbasis Laravel.</p>
+        </a>
 
         <!-- CARD 2 -->
-        <div class="bg-white rounded-xl shadow-md p-6 border border-pink-200 hover:shadow-xl transition">
-          <h3 class="font-bold text-xl text-pink-600 mb-2">Project 2</h3>
-          <p class="text-gray-700">Desain UI mobile dengan tema pink aesthetic.</p>
-        </div>
+        <a href="#" class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+          <img src="image-portofolio/panduan-notifin.png" class="w-full h-40 object-cover">
+          <h3 class="font-bold text-xl text-pink-600 my-3">Sales App</h3>
+          <p class="text-gray-700 text-sm">Aplikasi mobile Flutter untuk pencatatan penjualan.</p>
+        </a>
 
         <!-- CARD 3 -->
-        <div class="bg-white rounded-xl shadow-md p-6 border border-pink-200 hover:shadow-xl transition">
-          <h3 class="font-bold text-xl text-pink-600 mb-2">Project 3</h3>
-          <p class="text-gray-700">Mini portfolio website untuk tugas akhir.</p>
-        </div>
+        <a href="https://tanimas.id" class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+          <img src="image-portofolio/image-tanimas.png" class="w-full h-40 object-cover">
+          <h3 class="font-bold text-xl text-pink-600 my-3">Manajemen KKN</h3>
+          <p class="text-gray-700 text-sm">Aplikasi manajemen kegiatan KKN berbasis web.</p>
+        </a>
 
       </div>
+
+      <!-- BUTTON -->
+      <div class="text-center mt-10">
+        <a href="semua-project.html" class="px-6 py-3 bg-pink-500 text-white rounded-full shadow-md hover:bg-pink-600 transition">
+          Lihat Semua Project
+        </a>
+      </div>
+
     </div>
   </section>
 
+
   <!-- CONTACT -->
-  <section id="contact" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-pink-600 mb-6">Kontak</h2>
-      <p class="text-gray-700">Email: <span class="font-semibold">pita@example.com</span></p>
+  <section id="contact" class="py-24 bg-gradient-to-b from-white to-pink-50">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold text-pink-600 text-center drop-shadow-sm mb-14">
+      Contact and Social Link
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/6282220396039" target="_blank">
+  <div class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-green-400 hover:shadow-2xl transition hover:-translate-y-1 cursor-pointer">
+    <div class="mb-4">
+      <img src="image-portofolio/icon-wa.png" alt="WhatsApp Icon" class="mx-auto w-10 h-10">
     </div>
-  </section>
+    <h3 class="text-xl font-bold text-pink-600 mb-1">WhatsApp</h3>
+    <p class="text-gray-700"></p>
+  </div>
+</a>
+
+
+      <!-- Email -->
+      <a href="mailto:fithangarifah@gmail.com">
+  <div class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition hover:-translate-y-1 cursor-pointer">
+    <div class="text-pink-500 text-5xl mb-4">💌</div>
+    <h3 class="text-xl font-bold text-pink-600 mb-1">Email</h3>
+    <p class="text-gray-700"></p>
+  </div>
+</a>
+
+
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/ptaa_lailaaa" target="_blank">
+  <div class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition hover:-translate-y-1 cursor-pointer">
+    <div class="mb-4">
+      <img src="image-portofolio/icon-ig.png" alt="Instagram Icon" class="mx-auto w-10 h-10">
+    </div>
+    <h3 class="text-xl font-bold text-pink-600 mb-2">Instagram</h3>
+    <p class="text-gray-700"></p>
+  </div>
+</a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@.ptaalailaaaa" target="_blank">
+  <div class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition hover:-translate-y-1 cursor-pointer">
+    <div class="mb-4">
+      <img src="image-portofolio/icon-tt.png" alt="TikTok Icon" class="mx-auto w-10 h-10">
+    </div>
+    <h3 class="text-xl font-bold text-pink-600 mb-2">TikTok</h3>
+    <p class="text-gray-700"></p>
+  </div>
+</a>
+
+      <!-- GitHub -->
+     <a href="https://github.com/pitaalailaa" target="_blank">
+  <div class="bg-white shadow-lg rounded-3xl p-8 text-center border-2 border-pink-200 hover:border-pink-400 hover:shadow-2xl transition hover:-translate-y-1 cursor-pointer">
+    <div class="mb-4">
+      <img src="image-portofolio/icon-github.png" alt="GitHub Icon" class="mx-auto w-10 h-10">
+    </div>
+    <h3 class="text-xl font-bold text-pink-600 mb-2">GitHub</h3>
+    <p class="text-gray-700"></p>
+  </div>
+</a>
+
+
+    </div>
+
+  </div>
+</section>
