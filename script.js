@@ -7,4 +7,7 @@ btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
 
+animation: {
+  slideUp: 'slideUp 0.8s ease-out forwards'
+}
 
