@@ -38,25 +38,38 @@
 
 <body class="bg-white overflow-y-scroll">
 
+<!-- GOOGLE FONT (AMANKAN BUAT HP) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT CLASS -->
+  <style>
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+
 <!-- NAVBAR -->
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
   <div
-    class="px-10 py-4
-           bg-white/70
+    class="px-6 py-4
+           bg-white/80
            backdrop-blur-xl
-           rounded-full
+           rounded-2xl md:rounded-full
            border border-pink-200/60
            shadow-md
            flex items-center justify-between">
 
-
-    <!-- LOGO KIRI -->
-    <a href="#home"
-       class="text-xl font-semibold text-pink-600">
+    <a href="#home" class="text-xl font-semibold text-pink-600">
       MyPortfolio
     </a>
 
-    <!-- MENU KANAN -->
     <ul class="hidden md:flex gap-10 text-gray-700 font-medium">
       <li><a href="#home" class="hover:text-pink-500">Home</a></li>
       <li><a href="#about" class="hover:text-pink-500">About</a></li>
@@ -65,16 +78,13 @@
       <li><a href="#contact" class="hover:text-pink-500">Contact</a></li>
     </ul>
 
-    <!-- Mobile Button -->
-    <button class="md:hidden text-pink-600 text-3xl" id="menu-btn">
-      ☰
-    </button>
+    <button class="md:hidden text-pink-600 text-3xl" id="menu-btn">☰</button>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- MOBILE MENU -->
   <div id="mobile-menu"
        class="hidden md:hidden mt-4 bg-white/90 backdrop-blur-lg rounded-2xl shadow-inner">
-    <ul class="flex flex-col gap-4 p-6 text-gray-700 font-medium">
+    <ul class="flex flex-col gap-4 p-6 text-gray-700 font-medium text-center">
       <li><a href="#home" class="hover:text-pink-600">Home</a></li>
       <li><a href="#about" class="hover:text-pink-600">About</a></li>
       <li><a href="#projects" class="hover:text-pink-600">Projects</a></li>
@@ -84,93 +94,66 @@
   </div>
 </nav>
 
-
 <script>
   const btn = document.getElementById("menu-btn");
   const menu = document.getElementById("mobile-menu");
-
   btn.addEventListener("click", () => {
     menu.classList.toggle("hidden");
   });
 </script>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section id="home"
-  class="relative overflow-hidden
-         min-h-screen flex items-center pt-28 px-6
-         scroll-animate opacity-0 translate-y-10">
+  class="relative overflow-hidden min-h-screen flex items-center pt-28 px-6">
 
-  <!-- BACKGROUND BLUR PINK -->
+  <!-- BLUR BACKGROUND -->
   <div class="absolute inset-0 -z-10 overflow-hidden">
     <span class="absolute top-1/3 -right-32 w-96 h-96 bg-pink-200 rounded-full blur-3xl opacity-40"></span>
     <span class="absolute top-1/3 -left-32 w-96 h-96 bg-pink-100 rounded-full blur-3xl opacity-40"></span>
   </div>
 
-    <!-- BUBBLE KECIL TENGAH -->
-    <div
-      class="absolute top-[55%] left-1/2 -translate-x-1/2
-             w-64 h-64 bg-pink-100 rounded-full blur-2xl opacity-40">
-    </div>
-         
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
     <!-- TEKS -->
-    <div class="space-y-6 scroll-animate opacity-0 translate-y-10 relative">
+    <div class="space-y-6 text-center md:text-left relative">
 
-      <!-- Hiasan bubble kecil -->
-      <span class="absolute -top-6 -left-6 w-16 h-16 bg-pink-200 rounded-full blur-2xl opacity-40"></span>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight font-playfair">
+        Hi, Saya <span class="text-pink-600">Fitha Lailatul Ngarifah 🎀</span>
+      </h1>
 
-      <!-- DIV WRAP (TETAP ADA) -->
-      <div class="flex flex-wrap gap-4 items-center relative">
-
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight relative z-10">
-          Hi, Saya <span class="text-pink-600">Fitha Lailatul Ngarifah 🎀</span>
-        </h1>
-
-        <!-- KOTAK PINK -->
+      <div class="flex justify-center md:justify-start">
         <div
-          class="inline-block bg-pink-100 text-pink-700
-                 px-5 py-2 rounded-full shadow-sm
-                 text-sm font-medium relative z-10">
-          Siswa kelas 12 jurusan PPLG  
-          (Pengembangan Perangkat Lunak dan Gim)
+          class="bg-pink-100 text-pink-700
+                 px-6 py-2 rounded-xl shadow-sm
+                 text-sm font-medium text-center">
+          Pelajar SMK • PPLG (Software & Game Dev)
         </div>
-
       </div>
 
-      <!-- GARIS AKSEN -->
-      <div class="w-24 h-1 bg-pink-400 rounded-full opacity-70"></div>
-
+      <div class="w-24 h-1 bg-pink-400 rounded-full opacity-70 mx-auto md:mx-0"></div>
     </div>
 
     <!-- FOTO -->
-<div class="flex justify-center md:justify-end scroll-animate opacity-0 translate-y-10">
-  <div
-    class="relative group
-           w-72 h-72 md:w-[380px] md:h-[380px]
-           rounded-3xl border-4 border-pink-400
-           shadow-xl overflow-hidden
-           cursor-pointer
-           transition-transform duration-500">
+    <div class="flex justify-center md:justify-end">
+      <div
+        class="relative group
+               w-72 h-72 md:w-[380px] md:h-[380px]
+               rounded-3xl border-4 border-pink-400
+               shadow-xl overflow-hidden">
 
-    <!-- Glow -->
-    <div
-      class="absolute inset-0 bg-pink-400 blur-2xl opacity-30
-             group-hover:opacity-50 transition duration-300">
+        <div class="absolute inset-0 bg-pink-400 blur-2xl opacity-30"></div>
+
+        <img
+          src="image-portofolio/image-home.png"
+          class="relative z-10 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+      </div>
     </div>
-
-    <!-- Image -->
-    <img
-      src="image-portofolio/image-home.png"
-      class="relative z-10 w-full h-full object-cover
-             transition duration-500
-             group-hover:scale-110">
-  </div>
-</div>
 
   </div>
 </section>
 
+</body>
+</html>
   <!-- ABOUT -->
 <section id="about" class="py-20 bg-white scroll-animate opacity-0 translate-y-10">
   <div class="max-w-6xl mx-auto px-6 bg-pink-100 border border-pink-200 rounded-3xl p-6 md:p-20 shadow-md">
